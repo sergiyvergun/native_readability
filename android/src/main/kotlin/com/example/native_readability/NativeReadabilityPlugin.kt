@@ -38,7 +38,7 @@ class NativeReadabilityPlugin : FlutterPlugin, MethodCallHandler {
   fun parse(url: String, html: String): String? {
     val readability4J: Readability4J = Readability4JExtended(url, html)
     val article: Article = readability4J.parse()
-    return article.contentWithUtf8Encoding
+    return article.contentWithDocumentsCharsetOrUtf8
   }
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
